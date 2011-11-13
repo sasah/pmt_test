@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module rename-to='app'>
+	<inherits name="com.PMT" />
+	<entry-point class="com.pmt.test.Wrap" />	
+	<source path='test' />	
+</module>
