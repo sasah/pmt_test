@@ -1,9 +1,9 @@
 package com.pmt.test;
 
 import com.google.gwt.core.client.EntryPoint;
-import com.pmt.bean.BeanDescriptor;
-import com.pmt.bean.Introspector;
-import com.pmt.bean.Property;
+import com.pmt.sys.reflection.BeanDescriptor;
+import com.pmt.sys.reflection.Introspector;
+import com.pmt.sys.reflection.Property;
 import com.pmt.wrap.titanium.API;
 
 public class GenTest implements EntryPoint {
@@ -22,7 +22,7 @@ public class GenTest implements EntryPoint {
 				} else {
 					sb.append(",");
 				}
-				sb.append("[" + pr.getName() + "] " + pr.getType().getName());
+				sb.append("[" + pr.getName() + "] " + pr.getType().getName() + (pr.isNotNull() ? " NOT NULL" : ""));
 				// API.debug(pr.getName());
 				// API.debug(pr.getType().getName());
 				// pr.getMutatorMethod().invoke(p, new Object[] { "sss" });
