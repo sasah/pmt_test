@@ -1,6 +1,7 @@
 package com.pmt.test;
 
 import com.google.gwt.core.client.EntryPoint;
+import com.pmt.database.Helper;
 import com.pmt.sys.reflection.BeanDescriptor;
 import com.pmt.sys.reflection.Introspector;
 import com.pmt.sys.reflection.Property;
@@ -10,27 +11,16 @@ public class GenTest implements EntryPoint {
 
 	public void onModuleLoad() {
 		try {
-			Person p = new Person();
-
-			BeanDescriptor bd = Introspector.INSTANCE.getDescriptor(p);
-			StringBuilder sb = new StringBuilder();
-			sb.append("CREATE TABLE [" + p.getClass().getName() + "] (");
-			boolean f = true;
-			for (Property pr : bd.getProperties()) {
-				if (f) {
-					f = false;
-				} else {
-					sb.append(",");
-				}
-				sb.append("[" + pr.getName() + "] " + pr.getType().getName() + (pr.isNotNull() ? " NOT NULL" : ""));
-				// API.debug(pr.getName());
-				// API.debug(pr.getType().getName());
-				// pr.getMutatorMethod().invoke(p, new Object[] { "sss" });
-			}
-			sb.append(")");
-			API.debug(sb.toString());
+			Info p = new Info();
+			p.setId(1);
+			p.setKind(1);
+			p.setCity("City");
+			p.setAddress("Address");
+			p.setName("Name");
+			p.setLatitude(123.113);
+			API.debug(Helper.insert(p));
 		} catch (Exception e) {
-			e.printStackTrace();
+			API.debug(e.getMessage());
 		}
 		/*
 		 * JSONObject jsonObject = new JSONObject(); jsonObject.put("id", new

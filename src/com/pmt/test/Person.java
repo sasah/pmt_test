@@ -1,47 +1,80 @@
 package com.pmt.test;
 
+import com.pmt.database.annotation.AutoIncrement;
+import com.pmt.database.annotation.NotNull;
+import com.pmt.database.annotation.PrimaryKey;
+import com.pmt.database.annotation.Table;
+import com.pmt.database.annotation.Unique;
 import com.pmt.sys.reflection.Entity;
-import com.pmt.sys.reflection.Index;
-import com.pmt.sys.reflection.NotNull;
-import com.pmt.sys.reflection.PrimaryKey;
-import com.pmt.sys.reflection.Table;
 
 @Entity
 @Table("sasa")
 public class Person {
-	@Index(desc = false, unique = false)
-	private String firstName;
-	
-	@NotNull
-	@Index(desc = false, unique = true)
-	private int middleName;
-	
 	@PrimaryKey
+	@AutoIncrement
+	private int a;
 	@NotNull
-	@Index(desc = true, unique = false)
-	private double lastName;
+	private Integer b;
+	private double c;
+	private Double d;
+	@Unique
+	private String e;
+	private boolean f;
+	private Boolean g;
 
-	public String getFirstName() {
-		return firstName;
+	public int getA() {
+		return a;
 	}
 
-	public void setFirstName(String name) {
-		firstName = name;
+	public void setA(int a) {
+		this.a = a;
 	}
 
-	public int getMiddleName() {
-		return middleName;
+	public Integer getB() {
+		return b;
 	}
 
-	public void setMiddleName(int name) {
-		middleName = name;
+	public void setB(Integer b) {
+		this.b = b;
 	}
 
-	public double getLastName() {
-		return lastName;
+	public double getC() {
+		return c;
 	}
 
-	public void setLastName(double name) {
-		lastName = name;
+	public void setC(double c) {
+		this.c = c;
+	}
+
+	public Double getD() {
+		return d;
+	}
+
+	public void setD(Double d) {
+		this.d = d;
+	}
+
+	public String getE() {
+		return e;
+	}
+
+	public void setE(String e) {
+		this.e = e;
+	}
+
+	public boolean isF() {
+		return f;
+	}
+
+	public void setF(boolean f) {
+		this.f = f;
+	}
+
+	public Boolean getG() {
+		return g;
+	}
+
+	public void setG(Boolean g) {
+		this.g = g;
 	}
 }
